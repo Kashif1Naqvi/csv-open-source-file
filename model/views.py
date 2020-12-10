@@ -8,7 +8,9 @@ def profile(request):
     # declaring template
     template = "model/profile.html"
     data = Profile.objects.all()
-    
+    for obj in data:
+        
+        print(obj.name,obj.job_title)
     # prompt is a context variable that can have different values      depending on their context
     prompt = {
             'profiles': data
