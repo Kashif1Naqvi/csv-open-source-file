@@ -33,28 +33,29 @@
 
  
  
-  
+      <th scope="col">Id</th>
       <th scope="col">Name</th>
       <th scope="col">job title </th>
-      <th scope="col">department </th>
-      <th scope="col">full_or_part_time </th>
-      <th scope="col">salary_or_hourly </th>
+      <th scope="col">Department </th>
+      <th scope="col">Annual Salary</th>
+      {% comment %} <th scope="col">salary_or_hourly </th>
       <th scope="col">typical_hours </th>
       <th scope="col">annual_salary</th>
-      <th scope="col">hourly_rate</th>
+      <th scope="col">hourly_rate</th> {% endcomment %}
     </tr>
   </thead>
   <tbody>
     {% for profile in profiles %}
     <tr>
-      <td>{{profile.name}}</td>
-      <td>{{profile.job_title}}</td>
-      <td>{{profile.department}}</td>
-      <td>{{profile.full_or_part_time}}</td>
-      <td>{{profile.salary_or_hourly}}</td>
+      <td>{{profile.id}}</td>
+      <td>{{profile.Name}}</td>
+      <td>{{profile.JobTitle}}</td>
+      <td>{{profile.Department}}</td>
+      <td>{{profile.AnnualSalary}}</td>
+      {% comment %} <td>{{profile.salary_or_hourly}}</td>
       <td>{{profile.typical_hours}}</td>
       <td>{{profile.annual_salary}}</td>
-      <td>{{profile.hourly_rate}}</td>
+      <td>{{profile.hourly_rate}}</td> {% endcomment %}
     </tr>
   
     
