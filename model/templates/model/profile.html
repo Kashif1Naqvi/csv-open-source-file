@@ -47,11 +47,11 @@
   <tbody>
     {% for profile in profiles %}
     <tr>
-      <td>{{profile.id}}</td>
+      {% comment %} <td>{{profile.id}}</td>
       <td>{{profile.Name}}</td>
       <td>{{profile.JobTitle}}</td>
       <td>{{profile.Department}}</td>
-      <td>{{profile.AnnualSalary}}</td>
+      <td>{{profile.AnnualSalary}}</td> {% endcomment %}
       {% comment %} <td>{{profile.salary_or_hourly}}</td>
       <td>{{profile.typical_hours}}</td>
       <td>{{profile.annual_salary}}</td>

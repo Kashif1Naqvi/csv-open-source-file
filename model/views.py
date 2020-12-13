@@ -1,7 +1,9 @@
 import csv, io
 from django.shortcuts import render
 from django.contrib import messages
-from .models import Profile
+from .models import Profile,Department
+from decimal import Decimal
+
 # Create your views here.
 # one parameter named request
 def profile(request):
@@ -9,14 +11,14 @@ def profile(request):
     # declaring template
     template = "model/profile.html"
     data = Profile.objects.all()
-    for obj in data:
+    
         
-        print("obj.id",obj.id)
     # prompt is a context variable that can have different values      depending on their context
     prompt = {
             'profiles': data
         }
     # GET request returns the value of the data with the specified key.
+    
     if request.method == "GET":
         return render(request, template, prompt)
     csv_file = request.FILES['file']
@@ -28,16 +30,17 @@ def profile(request):
     io_string = io.StringIO(data_set)
     next(io_string)
     for column in csv.reader(io_string, delimiter=',', quotechar='"'):
-        _, created = Profile.objects.update_or_create(
-            Name=column[0],
-            JobTitle=column[1],
-            Department=column[2],
-            AnnualSalary=column[3],
-            # salary_or_hourly=column[4],
-            # typical_hours=column[5],
-            # annual_salary=column[6],
-            # hourly_rate =column[7],
+        Profile.objects.update_or_create(
+            name=column[0],
+            job_title_id = column[1],
+            department = column[2],
+            is_full_time=column[3],
+            annual_salary=column[6],
+            hourly_rate=column[7],
         )
+        
+        
+        
     context = {}
     
     
